@@ -141,15 +141,15 @@ export default {
     }
     
     const handleLogout = () => {
-      // 可以在这里添加退出登录的确认对话框
+      // 添加退出登录的确认对话框
       if (confirm('确定要退出登录吗？')) {
-        // 清除用户状态、token等
-        // localStorage.removeItem('userToken')
-        // sessionStorage.clear()
+        // 清除用户状态和登录信息
+        localStorage.removeItem('isLoggedIn')
+        localStorage.removeItem('currentUser')
+        sessionStorage.clear()
         
-        // 重定向到登录页面或首页
-        console.log('用户已退出登录')
-        // router.push('/login') // 如果有登录页面的话
+        // 重定向到登录页面
+        router.push('/login')
       }
     }
 
