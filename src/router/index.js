@@ -12,6 +12,7 @@ import News from '../views/News.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import ForgotPassword from '../views/ForgotPassword.vue'
+import Community from '../views/Community.vue'
 
 // 懒加载页面
 const ProjectCreate = () => import('../views/ProjectCreate.vue')
@@ -81,14 +82,24 @@ const routes = [
     component: Docs
   },
   {
-    path: '/network',
-    name: 'Network',
+    path: '/network/teams',
+    name: 'NetworkTeams',
     component: Network
+  },
+  {
+    path: '/network/settings',
+    name: 'NetworkSettings',
+    component: () => import('../views/NetworkSettings.vue')
   },
   {
     path: '/news',
     name: 'News',
     component: News
+  },
+  {
+    path: '/network/community',
+    name: 'Community',
+    component: Community
   }
 ]
 

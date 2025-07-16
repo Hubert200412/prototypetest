@@ -12,7 +12,7 @@
         <v-row align="center" no-gutters>
           <v-col>
             <div class="header-content">
-              <h1 class="text-h3 font-weight-bold mb-2">协作网络</h1>
+              <h1 class="text-h3 font-weight-bold mb-2">团队项目协作网络</h1>
               <p class="text-h6 font-weight-light opacity-80">管理团队成员，提高协作效率</p>
             </div>
           </v-col>

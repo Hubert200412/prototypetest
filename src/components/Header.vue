@@ -27,14 +27,45 @@
               <v-icon left>mdi-file-document</v-icon>
               使用文档
             </v-btn>
-            <v-btn 
-              :to="'/network'" 
-              text
-              class="nav-btn"
+            <v-menu
+              offset-y
+              open-on-hover
+              close-on-content-click
             >
-              <v-icon left>mdi-network</v-icon>
-              协作网络
-            </v-btn>
+              <template v-slot:activator="{ props }">
+                <v-btn 
+                  text
+                  class="nav-network"
+                  v-bind="props"
+                >
+                  <v-icon left>mdi-network</v-icon>
+                  协作网络
+                </v-btn>
+              </template>
+              
+              <v-list class="network-dropdown">
+                <v-list-item @click="navigateTo('/network/teams')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-folder-network</v-icon>
+                    团队项目
+                  </v-list-item-title>
+                </v-list-item>
+
+                <v-list-item @click="navigateTo('/network/community')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-account-group</v-icon>
+                    社区分享
+                  </v-list-item-title>
+                </v-list-item>
+                
+                <v-list-item @click="navigateTo('/network/settings')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-cog-outline</v-icon>
+                    协作设置
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
             <v-btn 
               :to="'/news'"
               text
@@ -132,8 +163,8 @@ export default {
     }
     
     const navigateTo = (page) => {
-      // 这里可以后续集成路由
-      console.log(`导航到: ${page}`)
+      // 使用路由导航到指定页面
+      router.push(page)
     }
     
     const toggleSettings = () => {
@@ -203,6 +234,12 @@ export default {
   box-shadow: none !important;
 }
 
+.nav-network {
+  text-transform: none !important;
+  margin: 0 4px;
+  color: #666 !important;
+}
+
 .nav-btn {
   text-transform: none !important;
   margin: 0 4px;
@@ -251,6 +288,34 @@ export default {
   object-fit: cover;
   object-position: center;
   border-radius: 50%;
+}
+
+/* 下拉菜单样式 */
+.network-dropdown {
+  min-width: 100px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+  border-radius: 8px !important;
+}
+
+.network-dropdown .v-list-item {
+  padding: 12px 16px;
+  transition: background-color 0.2s ease;
+}
+
+.network-dropdown .v-list-item:hover {
+  background-color: rgba(25, 118, 210, 0.08) !important;
+}
+
+.network-dropdown .v-list-item-title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.network-dropdown .v-icon {
+  margin-right: 8px;
+  color: #666;
 }
 
 /* 移动端适配 */
