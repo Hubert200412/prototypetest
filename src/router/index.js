@@ -6,6 +6,7 @@ import Chat from '../views/Chat.vue'
 import Profile from '../views/Profile.vue'
 import Docs from '../views/Docs.vue'
 import Projects from '../views/Projects.vue'
+import ProjectDetail from '../views/ProjectDetail.vue'
 import Network from '../views/Network.vue'
 import News from '../views/News.vue'
 
@@ -38,6 +39,12 @@ const routes = [
     path: '/projects',
     name: 'Projects',
     component: Projects
+  },
+  {
+    path: '/projects/:id',
+    name: 'ProjectDetail',
+    component: ProjectDetail,
+    props: true
   },
   {
     path: '/projects/create',

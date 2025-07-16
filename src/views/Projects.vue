@@ -192,7 +192,7 @@ export default {
     }
 
     const viewProject = (project) => {
-      console.log('查看项目:', project)
+      router.push(`/projects/${project.id}`)
     }
 
     const editProject = (project) => {

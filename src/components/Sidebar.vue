@@ -35,7 +35,7 @@
             </div>
           </div>
           <div v-show="expandedWorkshops.web && !sidebarCollapsed" class="product-list">
-            <div class="product-item" v-for="product in webProjects" :key="product.id">
+            <div class="product-item" v-for="product in webProjects" :key="product.id" @click="goToProjectDetail(product.id)">
               <span class="project-name">{{ product.name }}</span>
               <span class="project-status" :class="product.status">{{ getStatusText(product.status) }}</span>
             </div>
@@ -62,7 +62,7 @@
             </div>
           </div>
           <div v-show="expandedWorkshops.mobile && !sidebarCollapsed" class="product-list">
-            <div class="product-item" v-for="product in mobileProjects" :key="product.id">
+            <div class="product-item" v-for="product in mobileProjects" :key="product.id" @click="goToProjectDetail(product.id)">
               <span class="project-name">{{ product.name }}</span>
               <span class="project-status" :class="product.status">{{ getStatusText(product.status) }}</span>
             </div>
@@ -89,7 +89,7 @@
             </div>
           </div>
           <div v-show="expandedWorkshops.automation && !sidebarCollapsed" class="product-list">
-            <div class="product-item" v-for="product in automationProjects" :key="product.id">
+            <div class="product-item" v-for="product in automationProjects" :key="product.id" @click="goToProjectDetail(product.id)">
               <span class="project-name">{{ product.name }}</span>
               <span class="project-status" :class="product.status">{{ getStatusText(product.status) }}</span>
             </div>
@@ -143,6 +143,11 @@ export default {
       })
     }
 
+    // 跳转到项目详情页
+    const goToProjectDetail = (projectId) => {
+      router.push(`/projects/${projectId}`)
+    }
+
     return {
       sidebarCollapsed,
       expandedWorkshops,
@@ -153,7 +158,8 @@ export default {
       toggleSidebar,
       goToProjectsPage,
       getStatusText,
-      createNewProject
+      createNewProject,
+      goToProjectDetail
     }
   }
 }
