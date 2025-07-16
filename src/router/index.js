@@ -100,6 +100,27 @@ const routes = [
     path: '/network/community',
     name: 'Community',
     component: Community
+  },
+  // 原子化能力相关路由
+  {
+    path: '/atomic/ai-models',
+    name: 'AtomicAIModels',
+    component: () => import('../views/AtomicAIModels.vue')
+  },
+  {
+    path: '/atomic/data-insights',
+    name: 'AtomicDataInsights',
+    component: () => import('../views/AtomicDataInsights.vue')
+  },
+  {
+    path: '/atomic/user-behavior',
+    name: 'AtomicUserBehavior',
+    component: () => import('../views/AtomicUserBehavior.vue')
+  },
+  {
+    path: '/atomic/scenarios',
+    name: 'AtomicScenarios',
+    component: () => import('../views/AtomicScenarios.vue')
   }
 ]
 

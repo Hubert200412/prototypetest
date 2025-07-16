@@ -35,7 +35,7 @@
               <template v-slot:activator="{ props }">
                 <v-btn 
                   text
-                  class="nav-network"
+                  class="nav-list"
                   v-bind="props"
                 >
                   <v-icon left>mdi-network</v-icon>
@@ -90,12 +90,65 @@
               <v-icon left>mdi-account-cog</v-icon>
               账户管理
             </v-btn>
+            <v-menu
+              offset-y
+              open-on-hover
+              close-on-content-click
+            >
+              <template v-slot:activator="{ props }">
+                <v-btn 
+                  text
+                  class="nav-list"
+                  v-bind="props"
+                >
+                  <v-icon left>mdi-atom</v-icon>
+                  原子化能力
+                </v-btn>
+              </template>
+              
+              <v-list class="network-dropdown">
+                <v-list-item @click="navigateTo('/atomic/ai-models')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-brain</v-icon>
+                    AI数据模型
+                  </v-list-item-title>
+                </v-list-item>
+
+                <v-list-item @click="navigateTo('/atomic/data-insights')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-chart-line</v-icon>
+                    大数据洞察
+                  </v-list-item-title>
+                </v-list-item>
+                
+                <v-list-item @click="navigateTo('/atomic/user-behavior')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-account-search</v-icon>
+                    用户行为分析
+                  </v-list-item-title>
+                </v-list-item>
+
+                <v-list-item @click="navigateTo('/atomic/scenarios')">
+                  <v-list-item-title>
+                    <v-icon left size="small">mdi-application-cog</v-icon>
+                    应用场景
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+            <v-btn 
+              :to="'/news'"
+              text
+              class="nav-btn"
+            ></v-btn>
           </v-btn-toggle>
         </v-col>
+
+        
         
         <v-col cols="auto">
           <div class="user-section">
-            <v-btn text @click="goToProfile" class="user-info-btn">
+            <v-btn text :to="'/profile'" class="user-info-btn">
               <v-avatar size="32" class="mr-2 header-avatar">
                 <img 
                   v-if="userAvatar" 
@@ -234,7 +287,7 @@ export default {
   box-shadow: none !important;
 }
 
-.nav-network {
+.nav-list {
   text-transform: none !important;
   margin: 0 4px;
   color: #666 !important;
