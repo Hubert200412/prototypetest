@@ -156,7 +156,7 @@
                       </div>
                       <div class="stat-item">
                         <div class="stat-value warning--text">4300万</div>
-                        <div class="stat-label">异网约客户</div>
+                        <div class="stat-label">连接异网客户</div>
                       </div>
                     </div>
                   </div>
